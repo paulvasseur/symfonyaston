@@ -1,0 +1,4 @@
+aston_front:
+    resource: "@AstonFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
