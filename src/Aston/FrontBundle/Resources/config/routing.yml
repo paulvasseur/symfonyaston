@@ -1,3 +1,10 @@
 aston_front_homepage:
     path:     /
     defaults: { _controller: AstonFrontBundle:Default:index }
+
+aston_front_hello:
+    path:     /hello/{name}
+    defaults: { _controller: AstonFrontBundle:Default:hello, name: "toto"}
+    methods: [GET,POST]
+    requirements:
+        name: "[a-z]+"

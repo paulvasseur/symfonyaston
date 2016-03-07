@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('AstonFrontBundle:Default:index.html.twig');
     }
+    
+    public function helloAction($name){
+        return $this->render('AstonFrontBundle:Default:hello.html.twig',array('prenom'=>$name));
+       
+    }
 }
