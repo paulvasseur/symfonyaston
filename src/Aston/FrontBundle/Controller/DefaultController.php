@@ -15,4 +15,19 @@ class DefaultController extends Controller
         return $this->render('AstonFrontBundle:Default:hello.html.twig',array('prenom'=>$name));
        
     }
+    
+    public function aboutAction(){
+        return $this->render('AstonFrontBundle:Default:about.html.twig');
+       
+    }
+    
+    public function postAction(){
+        return $this->render('AstonFrontBundle:Default:post.html.twig');
+       
+    }
+    
+    public function contactAction(){
+        return $this->render('AstonFrontBundle:Default:contact.html.twig');
+       
+    }
 }

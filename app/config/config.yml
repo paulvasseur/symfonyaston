@@ -36,7 +36,9 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-
+    globals:
+        locale: %locale%
+        compagny: %compagny%
 # Doctrine Configuration
 doctrine:
     dbal:
