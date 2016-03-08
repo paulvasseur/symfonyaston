@@ -18,8 +18,11 @@
                             {{ form_label(form.name) }}
                             {{ form_widget(form.name, {'attr':{'placeholder': form.name.vars.name|capitalize, 'class':'form-control'} }) }}
                           <!-- <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">-->
-                      <p class="help-block text-danger"></p>
-                      {{ form_errors(form.name) }}
+                      <p class="help-block text-danger">
+                      {% for error in form.name.vars.errors %}
+                      <p>{{error.message}}</p>
+                      {% endfor %}
+             </p>
              </div>
      </div>
      
@@ -28,8 +31,10 @@
                             {{ form_label(form.email) }}
                             {{ form_widget(form.email, {'attr':{'placeholder': form.email.vars.name|capitalize, 'class':'form-control' } })  }}
                          <!--<input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">-->
-                      <p class="help-block text-danger"></p>
-                       {{ form_errors(form.email) }}
+                      <p class="help-block text-danger">
+                        {% for error in form.email.vars.errors %}
+                      <p>{{error.message}}</p>
+                      {% endfor %}</p>
              </div>
      </div>                    
     
@@ -38,8 +43,11 @@
                             {{ form_label(form.phone) }}
                             {{ form_widget(form.phone, {'attr':{'placeholder': form.phone.vars.name|capitalize, 'class':'form-control' } })  }}
                           <!-- <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">-->
-                      <p class="help-block text-danger"></p>
-                       {{ form_errors(form.phone) }}
+                      <p class="help-block text-danger">
+                        {% for error in form.phone.vars.errors %}
+                      <p>{{error.message}}</p>
+                      {% endfor %}
+                        </p>
              </div>
      </div>
                           
@@ -47,8 +55,10 @@
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             {{ form_label(form.message) }}
                              {{ form_widget(form.message, {'attr':{'rows': 5, 'placeholder': form.message.vars.name|capitalize, 'class':'form-control' } })  }}
-                            <p class="help-block text-danger"></p>
-                             {{ form_errors(form.message) }}
+                            <p class="help-block text-danger">
+                              {% for error in form.message.vars.errors %}
+                      <p>{{error.message}}</p>
+                            {% endfor %}</p>
                         </div>
      </div><br>
                              <div id="success"></div>

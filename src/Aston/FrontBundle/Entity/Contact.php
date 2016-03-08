@@ -41,7 +41,7 @@ class Contact
 
     /**
      * @var string
-     * @Assert\Regex(pattern="/^[0-9]{20}$/")
+     * @Assert\Regex(pattern="/^[0-9]{10,20}$/")
      * 
      * @ORM\Column(name="phone", type="string", length=20, nullable=true)
      */

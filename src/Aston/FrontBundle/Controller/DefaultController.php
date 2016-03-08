@@ -42,11 +42,31 @@ class DefaultController extends Controller
         $form->handleRequest($request);
         
         if($form->isSubmitted() && $form->isValid()){
-            \Symfony\Component\VarDumper\VarDumper::dump($form->getErrors(true, true));
+           $em=$this->getDoctrine()->getManager();
+           $em->persist($form->getData());
+           $em->flush();
+           
+           $this->get('session')->getFlashBag()->add('info','Bravo !!!');
+           
+           return $this->redirectToRoute("aston_front_hello");
         }
         
         
         return $this->render('AstonFrontBundle:Default:contact.html.twig',array('form'=>$form->createView(),));
        
+    }
+    
+    public function sessionWriteAction(){
+        $session=$this->get('session');
+        $session->set('name','Sf3');
+        return new \Symfony\Component\HttpFoundation\Response('Writing...');
+    }
+    
+    public function sessionReadAction(){
+        $session=$this->get('session');
+        $name=$session->get('name');
+        
+        return new \Symfony\Component\HttpFoundation\Response ("Reading... $name");
+
     }
 }

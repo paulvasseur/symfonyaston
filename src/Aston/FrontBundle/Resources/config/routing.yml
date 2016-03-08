@@ -24,4 +24,14 @@ aston_front_contact:
     defaults: { _controller: AstonFrontBundle:Default:contact}
     methods: [GET,POST]
     
+aston_front_sesswrite:
+    path:     /sess/write
+    defaults: { _controller: AstonFrontBundle:Default:sessionWrite}
+    methods: [GET,POST]
+        
+aston_front_sessread:
+    path:     /sess/read/{name}
+    defaults: { _controller: AstonFrontBundle:Default:sessionRead}
+    methods: [GET,POST]        
+        
              

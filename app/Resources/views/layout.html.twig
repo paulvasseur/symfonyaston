@@ -2,8 +2,16 @@
 {% block header %}
     {% include ':default:header.html.twig' %}
 {% endblock %}
-
-
+<div class="container">
+{% for label, messages in app.session.flashbag.all %}
+<div class="alert alert-{{label}} alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  {% for message in messages %}
+ {{ message }}
+</div>
+{% endfor %}
+{% endfor %}
+</div>
 <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
