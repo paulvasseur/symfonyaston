@@ -15,7 +15,7 @@ aston_front_about:
     methods: [GET,POST]
          
 aston_front_post:
-    path:     /post
+    path:     /blog
     defaults: { _controller: AstonFrontBundle:Default:post}
     methods: [GET,POST]
 

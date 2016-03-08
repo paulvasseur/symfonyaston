@@ -1,1 +1,10 @@
-contact page
+{% block header %}
+    {% include ':default:header.html.twig' %}
+{% endblock %}
+{% block body %}
+    {{ form(form) }}
+{% endblock%}
+{% block footer %}
+    {% include ':default:footer.html.twig'%}
+{% endblock%}
+ 

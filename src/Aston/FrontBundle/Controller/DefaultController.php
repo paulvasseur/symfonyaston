@@ -17,6 +17,7 @@ class DefaultController extends Controller
     }
     
     public function aboutAction(){
+        
         return $this->render('AstonFrontBundle:Default:about.html.twig');
        
     }
@@ -27,7 +28,14 @@ class DefaultController extends Controller
     }
     
     public function contactAction(){
-        return $this->render('AstonFrontBundle:Default:contact.html.twig');
+        $form= $this->createFormBuilder()
+                ->add('name')
+                ->add('email')
+                ->add('phone')
+                ->add('message', \Symfony\Component\Form\Extension\Core\Type\TextareaType::class)
+                ->add('send',  \Symfony\Component\Form\Extension\Core\Type\SubmitType::class)    
+                ->getForm();        
+        return $this->render('AstonFrontBundle:Default:contact.html.twig',array('form'=>$form->createView(),));
        
     }
 }
