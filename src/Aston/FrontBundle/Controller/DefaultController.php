@@ -3,6 +3,7 @@
 namespace Aston\FrontBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -27,14 +28,23 @@ class DefaultController extends Controller
        
     }
     
-    public function contactAction(){
+    public function contactAction(Request $request){
+        //déclaration formulaire
         $form= $this->createFormBuilder()
                 ->add('name')
-                ->add('email')
+                ->add('email', \Symfony\Component\Form\Extension\Core\Type\EmailType::class)
                 ->add('phone')
                 ->add('message', \Symfony\Component\Form\Extension\Core\Type\TextareaType::class)
                 ->add('send',  \Symfony\Component\Form\Extension\Core\Type\SubmitType::class)    
                 ->getForm();        
+        //validation formulaire
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted() && $form->isValid()){
+            \Symfony\Component\VarDumper\VarDumper::dump($form->getErrors(true, true));
+        }
+        
+        
         return $this->render('AstonFrontBundle:Default:contact.html.twig',array('form'=>$form->createView(),));
        
     }
