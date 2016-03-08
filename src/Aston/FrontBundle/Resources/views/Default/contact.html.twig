@@ -19,6 +19,7 @@
                             {{ form_widget(form.name, {'attr':{'placeholder': form.name.vars.name|capitalize, 'class':'form-control'} }) }}
                           <!-- <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">-->
                       <p class="help-block text-danger"></p>
+                      {{ form_errors(form.name) }}
              </div>
      </div>
      
@@ -28,6 +29,7 @@
                             {{ form_widget(form.email, {'attr':{'placeholder': form.email.vars.name|capitalize, 'class':'form-control' } })  }}
                          <!--<input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">-->
                       <p class="help-block text-danger"></p>
+                       {{ form_errors(form.email) }}
              </div>
      </div>                    
     
@@ -37,6 +39,7 @@
                             {{ form_widget(form.phone, {'attr':{'placeholder': form.phone.vars.name|capitalize, 'class':'form-control' } })  }}
                           <!-- <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">-->
                       <p class="help-block text-danger"></p>
+                       {{ form_errors(form.phone) }}
              </div>
      </div>
                           
@@ -45,6 +48,7 @@
                             {{ form_label(form.message) }}
                              {{ form_widget(form.message, {'attr':{'rows': 5, 'placeholder': form.message.vars.name|capitalize, 'class':'form-control' } })  }}
                             <p class="help-block text-danger"></p>
+                             {{ form_errors(form.message) }}
                         </div>
      </div><br>
                              <div id="success"></div>

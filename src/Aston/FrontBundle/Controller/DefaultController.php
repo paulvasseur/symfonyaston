@@ -4,6 +4,7 @@ namespace Aston\FrontBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Aston\FrontBundle\Entity\Contact;
 
 class DefaultController extends Controller
 {
@@ -30,7 +31,7 @@ class DefaultController extends Controller
     
     public function contactAction(Request $request){
         //déclaration formulaire
-        $form= $this->createFormBuilder()
+        $form= $this->createFormBuilder(new Contact)
                 ->add('name')
                 ->add('email', \Symfony\Component\Form\Extension\Core\Type\EmailType::class)
                 ->add('phone')
