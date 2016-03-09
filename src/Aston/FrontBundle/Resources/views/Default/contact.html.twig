@@ -16,7 +16,7 @@
      <div class="row control-group">
              <div class="form-group col-xs-12 floating-label-form-group controls">
                             {{ form_label(form.name) }}
-                            {{ form_widget(form.name, {'attr':{'placeholder': form.name.vars.name|capitalize, 'class':'form-control'} }) }}
+                            {{ form_widget(form.name, {'id':'name', 'attr':{'placeholder': form.name.vars.name|capitalize, 'class':'form-control'} }) }}
                           <!-- <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">-->
                       <p class="help-block text-danger">
                       {% for error in form.name.vars.errors %}
@@ -29,7 +29,7 @@
      <div class="row control-group">
              <div class="form-group col-xs-12 floating-label-form-group controls">
                             {{ form_label(form.email) }}
-                            {{ form_widget(form.email, {'attr':{'placeholder': form.email.vars.name|capitalize, 'class':'form-control' } })  }}
+                            {{ form_widget(form.email, {'id':'email','attr':{'placeholder': form.email.vars.name|capitalize, 'class':'form-control' } })  }}
                          <!--<input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">-->
                       <p class="help-block text-danger">
                         {% for error in form.email.vars.errors %}
@@ -41,7 +41,7 @@
     <div class="row control-group">
              <div class="form-group col-xs-12 floating-label-form-group controls">
                             {{ form_label(form.phone) }}
-                            {{ form_widget(form.phone, {'attr':{'placeholder': form.phone.vars.name|capitalize, 'class':'form-control' } })  }}
+                            {{ form_widget(form.phone, {'id':'phone','attr':{'placeholder': form.phone.vars.name|capitalize, 'class':'form-control' } })  }}
                           <!-- <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">-->
                       <p class="help-block text-danger">
                         {% for error in form.phone.vars.errors %}
@@ -54,7 +54,7 @@
      <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             {{ form_label(form.message) }}
-                             {{ form_widget(form.message, {'attr':{'rows': 5, 'placeholder': form.message.vars.name|capitalize, 'class':'form-control' } })  }}
+                             {{ form_widget(form.message, {'id':'message','attr':{'rows': 5, 'placeholder': form.message.vars.name|capitalize, 'class':'form-control' } })  }}
                             <p class="help-block text-danger">
                               {% for error in form.message.vars.errors %}
                       <p>{{error.message}}</p>

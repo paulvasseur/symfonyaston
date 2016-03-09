@@ -46,7 +46,7 @@ class DefaultController extends Controller
            $em->persist($form->getData());
            $em->flush();
            
-           $this->get('session')->getFlashBag()->add('succes','Bravo, votre message a été envoyé !!!');
+           $this->get('session')->getFlashBag()->add('success','Bravo, votre message a été envoyé !!!');
            
            return $this->redirectToRoute("aston_front_hello");
         }
