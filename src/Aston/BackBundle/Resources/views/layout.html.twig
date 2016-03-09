@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <head>
         <title>BackOffice my friend</title>
+        {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('bundles/astonback/bootstrap/css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/astonback/bootstrap/css/bootstrap-theme.min.css') }}" />
+        {% endblock %}
     </head>
     <body>
         <h1>Backend my friend</h1>
         <div class="container">{% block body %}{% endblock %}</div>
+        
+        {% block javascript %}
+            <script src="{{ asset('bundles/astonback/jquery/jquery.js') }}"> </script>
+            <script src="{{ asset('bundles/astonback/bootstrap/js/bootstrap.min.js') }}"> </script>
+                
+        {% endblock %}    
     </body>
     
 </html>
