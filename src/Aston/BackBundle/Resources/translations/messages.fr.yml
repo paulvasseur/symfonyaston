@@ -1,2 +1,7 @@
 ## YAML Template.
 ---
+admin:
+    dashboard: Tableau de bord
+    blog: 
+        add: Ajouter un article
+        list: Lister les articles

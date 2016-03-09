@@ -1,3 +1,26 @@
 aston_back_homepage:
     path:     /
     defaults: { _controller: AstonBackBundle:Default:index }
+    
+aston_back_blog_add:
+    path: /blog
+    defaults: {_controller: AstonBackBundle:Default:Post:add }
+    methods: [GET,POST]
+    
+aston_back_blog_list:
+    path: /blog/add
+    defaults: {_controller: AstonBackBundle:Default:Post:list }    
+    
+aston_back_blog_update:
+    path: /blog/post/update/{id}
+    defaults: {_controller: AstonBackBundle:Default:Post:update }        
+    methods: [GET,POST]
+    requirements:
+        id: \d+
+        
+aston_back_blog_delete:
+    path: /blog/post/delete/{id}
+    defaults: {_controller: AstonBackBundle:Default:Post:delete }  
+    methods: [GET,POST]
+    requirements:
+        id: \d+
