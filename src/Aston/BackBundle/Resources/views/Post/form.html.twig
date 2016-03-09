@@ -1,1 +1,9 @@
-{# empty Twig template #}
+{% extends "AstonBackBundle::layout.html.twig"%}
+
+{% block title %}
+    Nouveau Post
+{% endblock %}    
+
+{% block body %}
+    {{ form(form) }}
+{% endblock %}    

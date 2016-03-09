@@ -10,6 +10,7 @@ namespace Aston\BackBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Aston\BackBundle\Entity\Post;
 /**
  * Description of Post
  *
@@ -22,7 +23,10 @@ class PostController extends Controller{
     }
     
     public function addAction(Request $request){
-        return $this->render('AstonBackBundle:Post:form.html.twig');
+        $form=$this->createForm('Aston\BackBundle\Form\Type\PostType', new Post());
+        return $this->render('AstonBackBundle:Post:form.html.twig', array(
+            'form'=>$form->createView(),
+        ));
     }
     
     public function updateAction(Request $request){

@@ -5,7 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-namespace Aston\Backbundle\Form\Type;
+namespace Aston\BackBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 /**
@@ -18,7 +18,7 @@ class PostType extends AbstractType {
         $builder->add('title')
                 ->add('teaser')
                 ->add('content')
-                ->add('publish', null, ['required'=>false])
+                ->add('published', null, ['required'=>false])
                 ->add('creatDate')
                 ->add('title',  \Symfony\Component\Form\Extension\Core\Type\SubmitType::class);
                 
