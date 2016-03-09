@@ -32,9 +32,9 @@ class DefaultController extends Controller
     public function contactAction(Request $request){
         //déclaration formulaire
         $form= $this->createFormBuilder(new Contact)
-                ->add('name')
+                ->add('name',null,array('label'=>'app.name'))
                 ->add('email', \Symfony\Component\Form\Extension\Core\Type\EmailType::class)
-                ->add('phone')
+                ->add('phone',null,array('label'=>'app.phone'))
                 ->add('message', \Symfony\Component\Form\Extension\Core\Type\TextareaType::class)
                 ->add('send',  \Symfony\Component\Form\Extension\Core\Type\SubmitType::class)    
                 ->getForm();        
