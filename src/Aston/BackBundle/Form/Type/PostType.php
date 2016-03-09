@@ -20,7 +20,7 @@ class PostType extends AbstractType {
                 ->add('content')
                 ->add('published', null, ['required'=>false])
                 ->add('creatDate')
-                ->add('title',  \Symfony\Component\Form\Extension\Core\Type\SubmitType::class);
+                ->add('send',  \Symfony\Component\Form\Extension\Core\Type\SubmitType::class);
                 
     }
 
