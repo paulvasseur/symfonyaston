@@ -1,0 +1,13 @@
+## YAML Template.
+---
+un message: Bonjour le Monde
+
+nav:
+    home: Accueil
+    about: A propos
+    blog: Blog
+    contact: Nous contacter
+
+app:
+    hello: Bonjour 
+    
