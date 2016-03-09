@@ -1,0 +1,7 @@
+## YAML Template.
+---
+
+app:
+    name: Nom
+    email: Email
+    message: Message
