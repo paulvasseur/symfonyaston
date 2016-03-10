@@ -24,6 +24,19 @@ class PostController extends Controller{
     
     public function addAction(Request $request){
         $form=$this->createForm('Aston\BackBundle\Form\Type\PostType', new Post());
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted()){
+            if($form->isValid()){
+                $em=$this->getDoctrine()->getManager();
+                $em->persist($form->getData());
+                $em->flush();
+                
+                $this->addFlash('success','Le post a bien été ajouté.');
+                return $this->redirect($this->generateUrl('aston_back_blog_list'));
+            }
+        }
+        
         return $this->render('AstonBackBundle:Post:form.html.twig', array(
             'form'=>$form->createView(),
         ));
