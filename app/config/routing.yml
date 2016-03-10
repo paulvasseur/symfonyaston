@@ -1,3 +1,6 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
 aston_back:
     resource: "@AstonBackBundle/Resources/config/routing.yml"
     prefix:   /admin
@@ -5,4 +8,5 @@ aston_back:
 aston_front:
     resource: "@AstonFrontBundle/Resources/config/routing.yml"
     prefix:   /
+    
 
