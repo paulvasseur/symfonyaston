@@ -17,6 +17,7 @@
                             <td>Teaser</td>
                             <td>Content</td>
                             <td>Date</td>
+                            <td>Published</td>
                         </tr>    
                 </thead>
                 <tbody>
@@ -27,9 +28,10 @@
                             <td>{{ post.teaser }}</td>
                             <td>{{ post.content }}</td>
                             <td>{{ post.creatDate | date('d/m/Y') }}</td>
+                            <th>{{ post.published ? '<i class="fa fa-check"></i>' : '<i class="fa fa-times"></i>' }}</th>
                             <td>
-                                <a href="{{ path('aston_back_blog_update',{id: post.id}) }}" class="btn btn-sm btn-primary">Edit</a>
-                                <a href="{{ path('aston_back_blog_delete',{id: post.id}) }}" class="btn btn-sm btn-primary">Suppr</a>
+                                <a href="{{ path('aston_back_blog_update',{id: post.id}) }}" class="btn btn-sm btn-primary"><i class="fa fa-wrench"></i>&nbsp<span>Edit</span></a>
+                                <a href="{{ path('aston_back_blog_delete',{id: post.id}) }}" class="btn btn-sm btn-primary"><i class="fa fa-times">&nbsp</i><span>Suppr</span></a>
                             </td>
                         </tr>    
                     {% endfor %}
