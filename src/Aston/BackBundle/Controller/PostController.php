@@ -48,10 +48,31 @@ class PostController extends Controller{
     }
     
     public function updateAction(Request $request){
-        return $this->render('AstonBackBundle:Post:form.html.twig');  
+        
+        $id= (int) $request->get('id');
+        $em=$this->getDoctrine()->getManager();
+        $repo = $em->getRepository('AstonBackBundle:Post');
+        $post = $repo->find($id);
+        
+        $form=$this->createForm('Aston\BackBundle\Form\Type\PostType', $post);
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted()){
+            if($form->isValid()){
+  
+                $em->flush();
+                
+                $this->addFlash('success','Le post a bien été ajouté.');
+                return $this->redirect($this->generateUrl('aston_back_blog_list'));
+            }
+        }
+        
+        return $this->render('AstonBackBundle:Post:form.html.twig', array(
+            'form'=>$form->createView(),
+        ));  
     }
     
     public function deleteAction(Request $request){
-        return new Response;  
+        return new Response();  
     }
 }
