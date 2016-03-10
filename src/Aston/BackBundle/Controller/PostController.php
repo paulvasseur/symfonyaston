@@ -73,6 +73,13 @@ class PostController extends Controller{
     }
     
     public function deleteAction(Request $request){
-        return new Response();  
+      
+         $id= (int) $request->get('id');    
+        $em=$this->getDoctrine()->getManager();
+        $repo = $em->getRepository('AstonBackBundle:Post');
+        $post = $repo->find($id);
+        $em->remove($post);
+        $em->flush();
+        return $this->redirect($this->generateUrl('aston_back_blog_list'));
     }
 }
