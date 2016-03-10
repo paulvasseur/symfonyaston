@@ -48,7 +48,7 @@ class PostController extends Controller{
     }
     
     public function updateAction(Request $request){
-        
+        //throw $this->createNotFoundException('Post not found');
         $id= (int) $request->get('id');
         $em=$this->getDoctrine()->getManager();
         $repo = $em->getRepository('AstonBackBundle:Post');
