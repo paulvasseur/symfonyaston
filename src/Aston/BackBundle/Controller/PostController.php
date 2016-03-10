@@ -19,7 +19,12 @@ use Aston\BackBundle\Entity\Post;
 class PostController extends Controller{
     
     public function listAction(){
-        return $this->render('AstonBackBundle:Post:list.html.twig'); 
+        
+        $em=$this->getDoctrine()->getManager();
+        $repo=$em->getRepository('AstonBackBundle:Post');
+        $posts=$repo->findAll();
+        
+        return $this->render('AstonBackBundle:Post:list.html.twig',array('posts'=>$posts)); 
     }
     
     public function addAction(Request $request){

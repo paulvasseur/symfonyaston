@@ -3,12 +3,12 @@ aston_back_homepage:
     defaults: { _controller: AstonBackBundle:Default:index }
     
 aston_back_blog_add:
-    path: /blog
+    path: /blog/add
     defaults: {_controller: AstonBackBundle:Post:add }
     methods: [GET,POST]
     
 aston_back_blog_list:
-    path: /blog/add
+    path: /blog
     defaults: {_controller: AstonBackBundle:Post:list }    
     
 aston_back_blog_update:
