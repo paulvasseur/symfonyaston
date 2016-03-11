@@ -9,6 +9,7 @@
 namespace Aston\BackBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Description of User
  * @ORM\Entity
@@ -23,6 +24,14 @@ class User extends BaseUser {
      * 
      */
     protected $id;
+    
+    
+    /**
+     *
+     * @var array Post
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="user")
+     */
+    protected $posts;
     
    
 }

@@ -60,8 +60,8 @@ class Post
      *
      * @var User
      * 
-     * @ORM\ManyToOne(targetEntity="Aston\BackBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referenceColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Aston\BackBundle\Entity\User", inversedBy="posts")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
     
