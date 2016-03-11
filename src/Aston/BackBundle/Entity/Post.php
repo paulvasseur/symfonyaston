@@ -55,8 +55,17 @@ class Post
      * @ORM\Column(name="published", type="boolean")
      */
     private $published;
-
-
+    
+    /**
+     *
+     * @var User
+     * 
+     * @ORM\ManyToOne(targetEntity="Aston\BackBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referenceColumnName="id")
+     */
+    private $user;
+    
+    
     /**
      * Get id
      *
@@ -186,5 +195,16 @@ class Post
     {
         return $this->published;
     }
+    
+    function getUser() {
+        return $this->user;
+    }
+
+    function setUser(User $user) {
+        $this->user = $user;
+    }
+
+
+    
 }
 
