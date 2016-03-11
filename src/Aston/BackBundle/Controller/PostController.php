@@ -10,6 +10,7 @@ namespace Aston\BackBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Aston\BackBundle\Form\Handler\PostHandler;
 use Aston\BackBundle\Entity\Post;
 /**
  * Description of Post
@@ -29,7 +30,17 @@ class PostController extends Controller{
     
     public function addAction(Request $request){
         $form=$this->createForm('Aston\BackBundle\Form\Type\PostType', new Post());
-        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+        $security=$this->get('security.token_storage');
+        $req=$this->get('request_stack');
+        
+        $handler = new PostHandler($form, $req, $em, $security);
+      
+        if($handler->process()){
+            $this->addFlash('success','Le post a bien été ajouté.');
+                return $this->redirect($this->generateUrl('aston_back_blog_list'));
+        }
+        /* $form->handleRequest($request);
         
         if($form->isSubmitted()){
             if($form->isValid()){
@@ -45,7 +56,7 @@ class PostController extends Controller{
                 return $this->redirect($this->generateUrl('aston_back_blog_list'));
             }
         }
-        
+        */
         return $this->render('AstonBackBundle:Post:form.html.twig', array(
             'form'=>$form->createView(),
         ));
