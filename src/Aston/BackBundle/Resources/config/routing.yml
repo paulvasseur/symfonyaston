@@ -24,3 +24,30 @@ aston_back_blog_delete:
     methods: [GET,POST]
     requirements:
         id: \d+
+        
+    
+        
+aston_back_categorie_list:
+    path: /blog/categorie
+    defaults: {_controller: AstonBackBundle:Categorie:list }
+    methods: [GET,POST]  
+    
+aston_back_categorie_add:
+    path: /blog/categorie/add
+    defaults: {_controller: AstonBackBundle:Categorie:add }
+    methods: [GET,POST]  
+    
+aston_back_categorie_update:
+    path: /blog/categorie/update/{id}
+    defaults: {_controller: AstonBackBundle:Categorie:update }        
+    methods: [GET,POST]
+    requirements:
+        id: \d+
+        
+aston_back_categorie_delete:
+    path: /blog/categorie/delete/{id}
+    defaults: {_controller: AstonBackBundle:Categorie:delete }  
+    methods: [GET,POST]
+    requirements:
+        id: \d+    
+    

@@ -9,24 +9,19 @@ namespace Aston\BackBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 /**
- * Description of PostType
+ * Description of CategorieType
  *
  * @author dev
  */
-class PostType extends AbstractType {
+class CategorieType extends AbstractType {
     public function buildForm(\Symfony\Component\Form\FormBuilderInterface $builder, array $options) {
-        $builder->add('title')
-                ->add('teaser')
-                ->add('content')
-                ->add('published', null, ['required'=>false])
-                ->add('creatDate')
-                ->add('categorie', \Aston\BackBundle\Form\Type\CategorieType::class)
+        $builder->add('name')
                 ->add('send',  \Symfony\Component\Form\Extension\Core\Type\SubmitType::class);
                 
     }
 
     public function getName(){
-        return 'post_form';
+        return 'categorie_form';
     }
 
 }

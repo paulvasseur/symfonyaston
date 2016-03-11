@@ -218,28 +218,5 @@ class Post
 
 
     
-
-    /**
-     * Set categorie
-     *
-     * @param \Aston\BackBundle\Entity\Categorie $categorie
-     *
-     * @return Post
-     */
-    public function setCategorie(\Aston\BackBundle\Entity\Categorie $categorie = null)
-    {
-        $this->categorie = $categorie;
-
-        return $this;
-    }
-
-    /**
-     * Get categorie
-     *
-     * @return \Aston\BackBundle\Entity\Categorie
-     */
-    public function getCategorie()
-    {
-        return $this->categorie;
-    }
 }
+

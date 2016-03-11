@@ -34,38 +34,4 @@ class User extends BaseUser {
     protected $posts;
     
    
-
-    /**
-     * Add post
-     *
-     * @param \Aston\BackBundle\Entity\Post $post
-     *
-     * @return User
-     */
-    public function addPost(\Aston\BackBundle\Entity\Post $post)
-    {
-        $this->posts[] = $post;
-
-        return $this;
-    }
-
-    /**
-     * Remove post
-     *
-     * @param \Aston\BackBundle\Entity\Post $post
-     */
-    public function removePost(\Aston\BackBundle\Entity\Post $post)
-    {
-        $this->posts->removeElement($post);
-    }
-
-    /**
-     * Get posts
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPosts()
-    {
-        return $this->posts;
-    }
 }
