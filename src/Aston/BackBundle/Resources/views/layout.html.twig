@@ -48,6 +48,7 @@
             <span class="sr-only">Toggle navigation</span>
           </a>
           
+         
         </nav>
       </header>
       <!-- Left side column. contains the logo and sidebar -->
@@ -71,10 +72,11 @@
             <li class="header">Blog</li>
            
                 <ul class="sidebar-menu">
-                    <li><a href="{{ path('aston_back_homepage') }}"><i class="fa fa-home"></i>Home</a></li>
+                    <li><a href="{{ path('aston_back_homepage') }}"><i class="fa fa-home"></i><span>Home</span></a></li>
                     <li><a href="{{ path('aston_back_blog_add')}}"><i class="fa fa-pencil"></i><span>{{ 'admin.blog.add'|trans }}</span></a></li>
                     <li><a href="{{ path('aston_back_blog_list')}}"><i class="fa fa-list"></i><span>{{ 'admin.blog.list'|trans }}</span></a></li>
-                    <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i>Déconnexion</a></li>
+                    <li><a href="{{path('aston_front_homepage') }}" ><i class="fa fa-globe"></i><span>Voir le site</span></a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i><span>Déconnexion</span></a></li>
                 </ul>
                 
           </ul>
