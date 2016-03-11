@@ -2,3 +2,24 @@ services:
 #    aston_back.example:
 #        class: Aston\BackBundle\Example
 #        arguments: ["@service_id", "plain_value", %parameter%]
+     aston_back.greeting:
+         class: Aston\BackBundle\Service\Greeting
+         arguments:
+             - Toto
+     aston_back.form.entity:
+         class: Aston\BackBundle\Entity\Post
+         
+     aston_back.form.post:
+         factory: ['@form.factory','create']
+         class: Symfony\Component\Form\Form
+         arguments:
+             - Aston\BackBundle\Form\Type\PostType
+             - '@aston_back.form.entity'
+             
+     back.form.handler.form:
+         class: Aston\BackBundle\Form\Handler\PostHandler
+         arguments:
+             - '@aston_back.form.post'
+             - '@Request_stack'
+             - '@doctrine.orm.entity_manager'
+             - '@security.token_storage'

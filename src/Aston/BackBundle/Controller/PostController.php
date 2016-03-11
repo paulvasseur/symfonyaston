@@ -9,9 +9,7 @@
 namespace Aston\BackBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Aston\BackBundle\Form\Handler\PostHandler;
-use Aston\BackBundle\Entity\Post;
+
 /**
  * Description of Post
  *
@@ -20,7 +18,9 @@ use Aston\BackBundle\Entity\Post;
 class PostController extends Controller{
     
     public function listAction(){
+                $service=$this->get('aston_back.greeting');
         
+        \Symfony\Component\VarDumper\VarDumper::dump($service->sayHello());
         $em=$this->getDoctrine()->getManager();
         $repo=$em->getRepository('AstonBackBundle:Post');
         $posts=$repo->findPosts($this->getUser());
@@ -29,36 +29,15 @@ class PostController extends Controller{
     }
     
     public function addAction(Request $request){
-        $form=$this->createForm('Aston\BackBundle\Form\Type\PostType', new Post());
-        $em = $this->getDoctrine()->getManager();
-        $security=$this->get('security.token_storage');
-        $req=$this->get('request_stack');
-        
-        $handler = new PostHandler($form, $req, $em, $security);
+        $handler=$this->get('back.form.handler.form');
       
         if($handler->process()){
             $this->addFlash('success','Le post a bien été ajouté.');
                 return $this->redirect($this->generateUrl('aston_back_blog_list'));
         }
-        /* $form->handleRequest($request);
-        
-        if($form->isSubmitted()){
-            if($form->isValid()){
-                $em=$this->getDoctrine()->getManager();
-                $post=$form->getData();
-                $post->setUser($this->getUser());
-                
-                
-                $em->persist($form->getData());
-                $em->flush();
-                
-                $this->addFlash('success','Le post a bien été ajouté.');
-                return $this->redirect($this->generateUrl('aston_back_blog_list'));
-            }
-        }
-        */
+     
         return $this->render('AstonBackBundle:Post:form.html.twig', array(
-            'form'=>$form->createView(),
+            'form'=>$handler->getForm()->createView(),
         ));
     }
     

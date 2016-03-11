@@ -47,4 +47,10 @@ class PostHandler {
         $this->em->persist($post);
         $this->em->flush();
     }
+    function getForm() {
+        return $this->form;
+    }
+
+
+    
 }
