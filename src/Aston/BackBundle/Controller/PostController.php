@@ -22,7 +22,7 @@ class PostController extends Controller{
         
         $em=$this->getDoctrine()->getManager();
         $repo=$em->getRepository('AstonBackBundle:Post');
-        $posts=$repo->findAll();
+        $posts=$repo->findPosts($this->getUser());
         
         return $this->render('AstonBackBundle:Post:list.html.twig',array('posts'=>$posts)); 
     }
@@ -34,6 +34,10 @@ class PostController extends Controller{
         if($form->isSubmitted()){
             if($form->isValid()){
                 $em=$this->getDoctrine()->getManager();
+                $post=$form->getData();
+                $post->setUser($this->getUser());
+                
+                
                 $em->persist($form->getData());
                 $em->flush();
                 
@@ -59,7 +63,7 @@ class PostController extends Controller{
         
         if($form->isSubmitted()){
             if($form->isValid()){
-  
+                 
                 $em->flush();
                 
                 $this->addFlash('success','Le post a bien été ajouté.');
@@ -82,4 +86,8 @@ class PostController extends Controller{
         $em->flush();
         return $this->redirect($this->generateUrl('aston_back_blog_list'));
     }
+    
+   
+
+    
 }

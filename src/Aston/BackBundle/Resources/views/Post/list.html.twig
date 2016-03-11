@@ -6,7 +6,8 @@
 {% endblock %}    
 
 {% block body %}
-    <h1>Liste des articles :</h1>
+    <h1>Liste des articles de {{ app.user.username }} :</h1>
+    
     <div class="panel-body">
         <div class="table-responsive">
             <table class="table">

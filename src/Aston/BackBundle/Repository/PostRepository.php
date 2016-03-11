@@ -1,7 +1,7 @@
 <?php
 
 namespace Aston\BackBundle\Repository;
-
+use Aston\BackBundle\Entity\User;
 /**
  * PostRepository
  *
@@ -10,4 +10,17 @@ namespace Aston\BackBundle\Repository;
  */
 class PostRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * DQL: doctrine query language
+     * @param User $user
+     */
+    public function findPosts(User $user){
+        $qb=$this->createQueryBuilder('p');
+        $whereStmt = $qb->expr()->eq('p.user',':user');
+        
+        return $qb->where($whereStmt)
+                  ->setParameter('user', $user)
+                  ->getQuery()
+                  ->execute();
+    }
 }
